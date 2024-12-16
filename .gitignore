@@ -1,0 +1,9 @@
+# Virtual environment
+venv/
+
+# Django files
+__pycache__/
+db.sqlite3
+
+# System files
+.DS_Store
