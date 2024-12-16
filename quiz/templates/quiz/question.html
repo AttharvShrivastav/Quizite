@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+    <h1 class="text-2xl font-bold mb-4 text-blue-600">{{ question.text }}</h1>
+    <form method="post" action="{% url 'quiz:submit_answer' %}">
+        {% csrf_token %}
+        <div class="space-y-4">
+            {% for option in options %}
+                <div class="flex items-center space-x-3">
+                    <input type="radio" name="option" value="{{ option.id }}" id="option{{ option.id }}"
+                           class="w-5 h-5 text-blue-600 border-gray-300 focus:ring-blue-500">
+                    <label for="option{{ option.id }}" class="text-gray-700 text-lg">{{ option.text }}</label>
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit"
+                class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none">
+            Submit Answer
+        </button>
+    </form>
+</div>
+{% endblock %}

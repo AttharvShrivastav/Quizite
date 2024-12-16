@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold mb-6 text-purple-600 text-center">Leaderboard</h1>
+    <ul class="divide-y divide-gray-200">
+        {% for entry in top_scores %}
+            <li class="py-3 flex justify-between">
+                <span class="text-lg font-semibold">{{ entry.user }}</span>
+                <span class="text-lg text-gray-600">{{ entry.score }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'quiz:start_quiz' %}"
+       class="mt-6 block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+        Start a New Quiz
+    </a>
+</div>
+{% endblock %}
