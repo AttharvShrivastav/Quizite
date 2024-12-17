@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Question, Option, Leaderboard
+from .models import Question, Option
 import random
 
 def landing_page(request):
@@ -63,9 +63,9 @@ def quiz_summary(request):
         'total_questions': total_questions
     })
 
-def leaderboard(request):
-    top_scores = Leaderboard.objects.order_by('-score')[:10]
-    return render(request, 'quiz/leaderboard.html', {'top_scores': top_scores})
+# def leaderboard(request):
+#     top_scores = Leaderboard.objects.order_by('-score')[:10]
+#     return render(request, 'quiz/leaderboard.html', {'top_scores': top_scores})
 
 def quiz_summary(request):
     score = len(request.session.get('answered_questions', [])) - len(request.session.get('wrong_answers', []))

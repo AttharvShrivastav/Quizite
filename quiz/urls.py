@@ -9,5 +9,5 @@ urlpatterns = [
     path('question/', views.fetch_question, name='fetch_question'),
     path('submit/', views.submit_answer, name='submit_answer'),
     path('summary/', views.quiz_summary, name='summary'),
-    path('leaderboard/', views.leaderboard, name='leaderboard'),
+    # path('leaderboard/', views.leaderboard, name='leaderboard'),
 ]

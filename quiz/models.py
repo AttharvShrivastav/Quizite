@@ -16,10 +16,10 @@ class Option(models.Model):
     def __str__(self):
         return self.text
 
-class Leaderboard(models.Model):
-    user = models.CharField(max_length=255)
-    score = models.IntegerField()
-    date = models.DateTimeField(auto_now_add=True)
+# class Leaderboard(models.Model):
+#     user = models.CharField(max_length=255)
+#     score = models.IntegerField()
+#     date = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"{self.user} - {self.score}"
+#     def __str__(self):
+#         return f"{self.user} - {self.score}"
