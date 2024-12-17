@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-c43mrup0!w_=l3g_=!zy#r1k$lmsbn-s1cn9rvlvkz))2ddsc8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["quizite.render.com", 'localhost']
 
 
 # Application definition
@@ -47,6 +47,7 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
@@ -118,6 +119,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / 'quiz/static']
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

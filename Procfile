@@ -1,1 +1,3 @@
-web: gunicorn quizite.wsgi
+
+web: gunicorn quizite.wsgi:application
+
