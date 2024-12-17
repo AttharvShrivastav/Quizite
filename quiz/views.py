@@ -6,7 +6,6 @@ def landing_page(request):
     return render(request, 'quiz/landing.html')
 
 def start_quiz(request):
-    # Clear previous session data
     request.session['score'] = 0
     request.session['answered_questions'] = []
     request.session['wrong_answers'] = []
@@ -33,11 +32,9 @@ def submit_answer(request):
         question = Question.objects.get(id=question_id)
         selected_option = Option.objects.get(id=selected_option_id)
 
-        # Track answered questions and wrong answers
         answered_questions = request.session.get('answered_questions', [])
         wrong_answers = request.session.get('wrong_answers', [])
 
-        # Check if the selected answer is correct
         if not selected_option.is_correct:
             wrong_answers.append({
                 'question': question.text,
@@ -45,7 +42,6 @@ def submit_answer(request):
                 'correct_option': question.options.get(is_correct=True).text
             })
 
-        # Append the question to the answered list
         answered_questions.append(question_id)
         request.session['answered_questions'] = answered_questions
         request.session['wrong_answers'] = wrong_answers
