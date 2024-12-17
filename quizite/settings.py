@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-c43mrup0!w_=l3g_=!zy#r1k$lmsbn-s1cn9rvlvkz))2ddsc8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["quizite.onrender.com", 'localhost']
+ALLOWED_HOSTS = ["quizite.onrender.com", 'localhost', '127.0.0.1']
 
 
 # Application definition
